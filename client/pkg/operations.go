@@ -5,7 +5,6 @@ import (
 	"encoding/json"
 	"fmt"
 	"io"
-	"net/http"
 	"os"
 	"path/filepath"
 )
@@ -39,4 +38,3 @@ func (c *FileStoreClient) AddFile(filePath string) error {
 }
 
 // Implement other methods similarly: ListFiles, RemoveFile, UpdateFile, WordCount, FrequentWords
-// Example structure in previous implementation but split across files for clarity
