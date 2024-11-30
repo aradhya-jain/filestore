@@ -5,7 +5,7 @@ import (
 	"os"
 	"strconv"
 
-	"your_module_path/pkg"
+	"filestore/client/pkg"
 )
 
 func main() {
