@@ -4,17 +4,20 @@ module.exports = (app, fileStore) => {
       const filename = req.headers['x-filename'];
       const content = req.body;
       const result = fileStore.addFile(filename, content.toString());
+      console.log(`File is Added.`);
       res.json(result);
     });
   
     // List files
     app.get('/files', (req, res) => {
       res.json(fileStore.listFiles());
+      console.log(`List of the Files:`);
     });
   
     // Remove file
     app.delete('/files/:filename', (req, res) => {
       const result = fileStore.removeFile(req.params.filename);
+      console.log(`Files are Removed.`);
       res.json(result);
     });
   
@@ -23,12 +26,14 @@ module.exports = (app, fileStore) => {
       const filename = req.params.filename;
       const content = req.body;
       const result = fileStore.updateFile(filename, content.toString());
+      console.log(`Files are Updated.`);
       res.json(result);
     });
   
     // Word count
     app.get('/files/wordcount', (req, res) => {
       res.json({ wordCount: fileStore.getWordCount() });
+      console.log(`Word Count`);
     });
   
     // Frequent words
@@ -36,5 +41,6 @@ module.exports = (app, fileStore) => {
       const limit = parseInt(req.query.limit) || 10;
       const order = req.query.order || 'dsc';
       res.json(fileStore.getFrequentWords(limit, order));
+      console.log(`Frequent Words :`);
     });
   };
