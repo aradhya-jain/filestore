@@ -1,13 +1,10 @@
 package pkg
 
 import (
-	"bytes"
-	"encoding/json"
-	"fmt"
 	"io"
 	"net/http"
-	"os"
-	"path/filepath"
+	"crypto/sha256"
+	"encoding/hex"
 )
 
 type FileStoreClient struct {
